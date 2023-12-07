@@ -141,7 +141,7 @@ const Hero = () => {
           <h1 className="text-5xl uppercase magic">
             <span className="magic-text font-bold">E-State Ledger</span>
           </h1>
-          <p className="text-2xl capitalize">trust your place</p>
+          <p className="text-2xl capitalize">Bridging the Gap between Real State and Blockchain</p>
         </div>
         <div
           id="image-track"

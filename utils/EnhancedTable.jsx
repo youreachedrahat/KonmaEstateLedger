@@ -11,16 +11,22 @@ import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import { useEffect, useState } from "react";
 //Custom
+import Button from '@mui/material/Button';
+
 import { useWallet } from "@meshsdk/react";
 import { KoiosProvider } from "@meshsdk/core";
 import axios from "axios";
 import assetFetcherBF1 from "./assetFetcherBF1";
 import { useAssets } from "@meshsdk/react";
 import purchaseScript from "../utils/purchaseScript";
+import CommunityModal from "./CommunityModal"
 
 // Defined Functions
 import listAssets from "../utils/listAssets";
+
+
 export default function EnhancedTable() {
+  const [open, setOpen] = React.useState(false);
   const [loading, setLoading] = useState(true);
   const koiosProvider = new KoiosProvider("preprod");
   const { connected, wallet, disconnect } = useWallet();
@@ -31,6 +37,8 @@ export default function EnhancedTable() {
   function createData(name, Unit, Amount, Location, Status) {
     return { name, Unit, Amount, Location, Status };
   }
+
+  const handleOpen = () => setOpen(true);
 
   const SyntaxSetter = (Data) => {
     console.log(",,,,,", Data);
@@ -94,7 +102,15 @@ export default function EnhancedTable() {
   return (
     <>
       {!connected || loading ? (
-        <>Warning : <span style={{color:"yellow"}}>Connect your wallet !</span></>
+        <>Warning : <span style={{color:"yellow"}}>Connect your wallet !
+       </span>
+       
+       <CommunityModal
+        open={open}
+        setOpen={setOpen}
+        />
+        </>
+
       ) : (
         <TableContainer component={Paper}>
           <Table sx={{ minWidth: 650 }} aria-label="simple table">
@@ -121,13 +137,17 @@ export default function EnhancedTable() {
                   <TableCell align="right">{row.Amount} ADA</TableCell>
                   <TableCell align="right">{row.Location}</TableCell>
                   <TableCell  style={{backgroundColor:" yellow", color:"blue", textAlign:"center"}} onClick={()=>{alert("Not Applicable")}} align="right">View Document</TableCell>                 
-                  <button style={{backgroundColor:" yellow", color:"blue", textAlign:"center"}} onClick={()=>{
-                      lockNFTFunction(row);
-                  }} align="center">Accept</button>
+                  <button style={{backgroundColor:" yellow", color:"blue", textAlign:"center"}} 
+                   onClick={() => {
+  handleOpen();
+  lockNFTFunction(row);
+}}  align="center" >Accept</button>
+
                 </TableRow>
               ))}
             </TableBody>
           </Table>
+          
         </TableContainer>
       )}
     </>

@@ -122,7 +122,7 @@ function MarketPlace() {
     <>
       <div className="border-b border-gray-100  mt-6 w-[80%] mx-auto">
         <h2 className="text-white text-center font-semibold text-5xl leading-loose uppercase tracking-wide">
-          Estate Ledger NFT MarketPlace
+          Real Estate MarketPlace
         </h2>
       </div>
       {loading ? (
@@ -200,18 +200,18 @@ function MarketPlace() {
       </div> */}
             {NFTData.map((nft, index) => {
               if (nft.policyId === process.env.NEXT_PUBLIC_POLICY_ID) {
-                if (nft) {
+                if (nft.ImageLink) {
                   return (
                     <div
                       className="rounded-lg shadow max-w-[278px] bg-white"
                       key={nft.Name}
                     >
                       <div className="relative w-full aspect-[3/3]">
-                        {/* <img
+                         <img
                           className="rounded-t-lg object-cover w-full h-full nftImage"
                           src={`${nft.ImageLink[0]}${nft.ImageLink[1]}`}
                           alt={nft.Name}
-                        /> */}
+                        /> 
                         <div className="absolute bottom-0 right-0 p-1 bg-[#02040A] text-white text-xs rounded-md">
                           <p>{nft.Area} sqft</p>
                         </div>
