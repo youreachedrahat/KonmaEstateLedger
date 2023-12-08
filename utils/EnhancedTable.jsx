@@ -105,10 +105,7 @@ export default function EnhancedTable() {
         <>Warning : <span style={{color:"yellow"}}>Connect your wallet !
        </span>
        
-       <CommunityModal
-        open={open}
-        setOpen={setOpen}
-        />
+     
         </>
 
       ) : (
@@ -147,7 +144,10 @@ export default function EnhancedTable() {
               ))}
             </TableBody>
           </Table>
-          
+            <CommunityModal
+        open={open}
+        setOpen={setOpen}
+        />
         </TableContainer>
       )}
     </>
