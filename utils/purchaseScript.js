@@ -43,6 +43,7 @@ async function purchaseScript(NftObject,wallet) {
 
     if (txHash1) {
       console.log("Success NFT transaction", txHash1);
+      alert("Ran into Some Problem, Please Try Again after sometime")
       unlockScript(NftObject,wallet);
       // Sending NFT from Escrow Wallet to Investor's wallet
       // const userWalletAddress = (await wallet.getUsedAddresses())[0];
