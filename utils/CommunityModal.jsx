@@ -21,7 +21,7 @@ const CommunityModal = ({open, setOpen}) => {
         <div class=" bg-white  dark:bg-gray-700 h-[200px] absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-400 bg-background-paper border-2 border-black shadow-lg p-4 rounded-sm overflow-hidden">
             <div class="flex items-center justify-between mb-5 ">
                 <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
-                    You are not Autorized to Accept.
+                    You are not Authorized for this Operation.
                 </h3>
 
             </div>
