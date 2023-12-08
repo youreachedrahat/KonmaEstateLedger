@@ -13,7 +13,7 @@ export default function Home() {
     <>
       <div className="z-10 relative">
         <Hero />
-        <div className="w-[80%] mb-5 mx-auto">
+        <div className="w-[80%] mb-5 mx-auto rounded-sm overflow-hidden">
           <h2 className="text-white text-center font-semibold text-5xl leading-loose uppercase tracking-wide">
           Global Minting
         </h2>
