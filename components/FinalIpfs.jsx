@@ -36,7 +36,9 @@ function ImageUpload({
           }
         );
         if (response.data) {
-          setIpfsImg(["https://ipfs.io/ipfs/", ${response.data.IpfsHash}]);
+          // setIpfsImg(["https://ipfs.io/ipfs/", ${response.data.IpfsHash}]);
+          setIpfsImg(["https://ipfs.io/ipfs/", `${response.data.IpfsHash}`]);
+         
           if(selectedImageF[1]){
             setLoader2(false);
           }
@@ -69,7 +71,7 @@ function ImageUpload({
           <>
             {" "}
             <img
-              src={https://ipfs.io/ipfs/${selectedImageF[1]}}
+                src={`https://ipfs.io/ipfs/${selectedImageF[1]}`}
               alt="IPFS Image"
               className="h-36 w-autp m-4 rounded-md border-blue-300 border-2"
               onLoad={handleImageLoad}
