@@ -10,9 +10,9 @@ function ImageUpload({
 }) {
   const [isImageLoading, setIsImageLoading] = useState(true);
   const [Loader2, setLoader2] = useState(false);
-  const PINATA_API_KEY = "67adc6d6359dd8bdba85";  //"7f4879edd415003ea82d";
-  const PINATA_API_SECRET =
-    "6f904e617f87b0090a8ef6b86836187ad61e8447d89d8a742eb8d6beb86c8f44";   //"80ff126ee6cb00f395df7f708c889f95ac41289a011b19f88e752b092b2ae7e4";
+  // console.log("api state",process.env.NEXT_PUBLIC_PINATA_API_KEY,process.env.NEXT_PUBLIC_PINATA_SECRET_KEY);
+  const PINATA_API_KEY = process.env.NEXT_PUBLIC_PINATA_API_KEY;
+  const PINATA_API_SECRET = process.env.NEXT_PUBLIC_PINATA_SECRET_KEY;
   const [file, setFile] = useState(null);
 
   async function handleFileSelect(event) {
@@ -36,7 +36,7 @@ function ImageUpload({
           }
         );
         if (response.data) {
-          setIpfsImg(["https://ipfs.io/ipfs/", `${response.data.IpfsHash}`]);
+          setIpfsImg(["https://ipfs.io/ipfs/", ${response.data.IpfsHash}]);
           if(selectedImageF[1]){
             setLoader2(false);
           }
@@ -69,7 +69,7 @@ function ImageUpload({
           <>
             {" "}
             <img
-              src={`https://ipfs.io/ipfs/${selectedImageF[1]}`}
+              src={https://ipfs.io/ipfs/${selectedImageF[1]}}
               alt="IPFS Image"
               className="h-36 w-autp m-4 rounded-md border-blue-300 border-2"
               onLoad={handleImageLoad}
